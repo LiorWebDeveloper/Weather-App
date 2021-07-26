@@ -1,0 +1,15 @@
+* {
+  font-size: 1.1rem;
+}
+#wrapper {
+  position: sticky;
+  top: 0;
+  background-color: #046f94;
+  z-index: 10;
+}
+.navbar-brand {
+  font-family: Comic Sans MS;
+}
+.nav-item {
+  cursor: pointer;
+}

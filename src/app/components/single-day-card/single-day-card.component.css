@@ -1,0 +1,25 @@
+#wrapper {
+  margin-top: 10px;
+}
+
+.dayCard {
+  border: 1px solid rgba(0, 0, 0, 0.418);
+  text-align: center;
+  box-shadow: 5px 5px 10px gray;
+}
+.dayCard:first-of-type .date {
+  font-weight: 700;
+}
+.dayCard:first-of-type .maxTem {
+  font-weight: 600;
+}
+
+.maxTemp {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #1b4de4;
+}
+
+.minTemp {
+  color: #1b4de4;
+}

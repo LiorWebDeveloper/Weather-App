@@ -1,0 +1,33 @@
+<div id="wrapper" class="{{ styleService.bodyTheme }}">
+  <div class="row d-flex justify-content-center">
+    <div
+      id="emptyFavorites"
+      class="text-center"
+      *ngIf="favoritesService.favoritesLocations[0] == undefined"
+    >
+      You have not yet added places to your Favorites list<br />
+      Feel free to add your favorite placements from the home page
+    </div>
+    <div
+      class="col-xl-2 col-md-4 col-sm-8 mb-2 fadeInDown"
+      *ngFor="let city of favoritesService.favoritesLocations"
+      (click)="seeFiveDaysForecast(city)"
+    >
+      <div class="card {{ styleService.classTheme }}">
+        <div class="card-body text-center">
+          <h2 class="card-title">{{ city.CityDetails.name }}</h2>
+          <h4 *ngIf="styleService.isMetric == false" class="card-subtitle mb-2">
+            {{ city.Temperature.Imperial.Value }}<span>&#8457;</span>
+          </h4>
+          <h4 *ngIf="styleService.isMetric == true" class="card-subtitle mb-2">
+            {{ city.Temperature.Metric.Value }}<span>&#8451;</span>
+          </h4>
+          <p class="card-text">
+            {{ city.WeatherText }}
+          </p>
+          <span class="fiveDaysBtn">Click to see 5 days forecast</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

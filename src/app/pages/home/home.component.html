@@ -1,0 +1,91 @@
+<div id="wrapper" class="{{ styleService.bodyTheme }}">
+  <!-- Search box &  Auto complete-->
+  <div class="d-flex justify-content-center py-1">
+    <form id="searchform">
+      <small *ngIf="searchLocationsInput == ''" class="text-center">{{
+        onlyEnglish
+      }}</small>
+
+      <div class="input-group mb-2 border rounded-pill p-1">
+        <mat-autocomplete #locations="matAutocomplete">
+          <mat-option
+            *ngFor="let location of locationsFromServer"
+            [value]="location.LocalizedName"
+            (click)="selectLocation(location)"
+          >
+            {{ location.LocalizedName }} , {{ location.Country.LocalizedName }}
+          </mat-option>
+        </mat-autocomplete>
+        <input
+          onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)"
+          id="searchInput"
+          matInput
+          (ngModelChange)="
+            getAutoCompleteLocationsOnSearch(searchLocationsInput)
+          "
+          [(ngModel)]="searchLocationsInput"
+          placeholder="Search location"
+          aria-describedby="button-addon4"
+          class="text-center form-control border-0"
+          name="searchLocationsInput"
+          [matAutocomplete]="locations"
+        />
+      </div>
+      <div class="d-flex justify-content-center">
+        <!-- This button open a form model to get the coordinates from user  -->
+        <button
+          type="button"
+          class="btn btn-info mx-2 text-light rounded-pill  {{
+            styleService.btnDark
+          }} "
+          (click)="sweetAlertService.coordinatesModel()"
+        >
+          Search by Coordinates
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Five days box -->
+  <div
+    class="mt-3 mx-4 flex justify-content-center {{ styleService.classTheme }}"
+    id="fiveDayWrapper"
+  >
+    <div class="d-flex justify-content-around fadeInDown">
+      <div *ngIf="fiveDaysService.currentConditions[0] != undefined">
+        <span class="currentCity"> {{ fiveDaysService.currentCityName }}</span
+        ><br />
+        <span *ngIf="styleService.isMetric == false" class="currentTemperature">
+          {{
+            fiveDaysService.currentConditions[0].Temperature.Imperial.Value
+          }}&#8457;</span
+        >
+        <span *ngIf="styleService.isMetric == true" class="currentTemperature">
+          {{
+            fiveDaysService.currentConditions[0].Temperature.Metric.Value
+          }}&#8451;</span
+        >
+      </div>
+      <div
+        *ngIf="fiveDaysService.currentConditions[0] != undefined"
+        id="forecastsTitle"
+      >
+        {{ fiveDaysService.currentConditions[0].WeatherText }}
+      </div>
+      <div *ngIf="isFavoriteLocation == false">
+        <button (click)="saveToFavorites()" id="favoritesBtn">
+          <i class="far fa-star  {{ styleService.classTheme }}"></i>
+        </button>
+      </div>
+      <div *ngIf="isFavoriteLocation == true">
+        <button (click)="removeFromeFavorites()" id="favoritesBtn">
+          <i class="fas fa-star"></i>
+        </button>
+      </div>
+    </div>
+    <div id="dailyCards">
+      <h2 class="my-2">Daily forecast</h2>
+      <app-single-day-card></app-single-day-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+#searchform {
+  width: 30%;
+  min-width: 250px;
+}
+
+#searchInput {
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.774);
+}
+::placeholder {
+  color: black;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+
+#fiveDayWrapper {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px 2px rgba(14, 27, 99, 0.582);
+}
+
+.currentCity {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.currentTemperature {
+  font-size: 1.1rem;
+  color: #1b4de4;
+}
+
+#forecastsTitle {
+  font-size: 2rem;
+  font-weight: lighter;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.fa-star {
+  font-size: 2em;
+  opacity: 0.5;
+}
+
+.fa-star:hover {
+  opacity: 1;
+  transition: ease-in 0.3s;
+}
+
+#favoritesBtn {
+  background-color: transparent;
+  border: none;
+}
+
+#dailyCards {
+  min-height: 300px;
+}
+small {
+  color: rgb(121, 72, 40);
+  display: block;
+  font-size: 0.7rem;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding-left: 30px;
+}

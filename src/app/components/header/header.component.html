@@ -1,0 +1,57 @@
+<div id="wrapper">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#myNavbar"
+        aria-controls="myNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-between"
+        id="myNavbar"
+      >
+        <span class="navbar-brand">Discover the weather</span>
+
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li (click)="routeToHomePage()" class="nav-item">
+            <a class="nav-link {{ HomeActive }}">Home</a>
+          </li>
+          <li (click)="routeToFavoritesPage()" class="nav-item">
+            <a class="nav-link {{ favoritesActive }}">Favorites</a>
+          </li>
+        </ul>
+        <div>
+          <button
+            type="button"
+            class="btn btn-info mx-2 text-light"
+            (click)="changeUnits()"
+          >
+            {{ styleService.unitName }} units
+          </button>
+          <button
+            *ngIf="styleService.IsDarkTheme == false"
+            (click)="styleService.changeTheme()"
+            type="button"
+            class="btn btn-dark"
+          >
+            Dark Mode
+          </button>
+          <button
+            *ngIf="styleService.IsDarkTheme == true"
+            (click)="styleService.changeTheme()"
+            type="button"
+            class="btn btn-light"
+          >
+            Light Mode
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,28 @@
+#wrapper {
+  padding: 15px;
+}
+h4 {
+  color: #1b4de4;
+}
+.card {
+  box-shadow: 5px 5px 10px gray;
+}
+
+.fiveDaysBtn {
+  visibility: hidden;
+  color: #1b4de4;
+  font-size: 0.85rem;
+}
+
+.card:hover .fiveDaysBtn {
+  visibility: visible;
+}
+
+#emptyFavorites {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 35px;
+  font-size: 1.5rem;
+  margin-top: 25px;
+  font-weight: 600;
+  font-style: italic;
+}
